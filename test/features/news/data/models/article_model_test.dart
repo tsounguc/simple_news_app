@@ -14,7 +14,7 @@ void main() {
   setUpAll(() {
     testJson = fixture('article.json');
     testMap = jsonDecode(testJson) as Map<String, dynamic>;
-    testModel = ArticleModel.fromMap(testJson);
+    testModel = ArticleModel.fromMap(testMap);
   });
 
   test(
@@ -42,6 +42,22 @@ void main() {
         // Assert
         expect(result, isA<ArticleModel>());
         expect(result, equals(testModel));
+      },
+    );
+  });
+
+  group('toMap - ', () {
+    test(
+      'given [ArticleModel] '
+      'when toMap is called '
+      'then return [Map] with correct data',
+      () {
+        // Arrange
+
+        // Act
+        final result = testModel.toMap();
+        // Assert
+        expect(result, equals(testMap));
       },
     );
   });

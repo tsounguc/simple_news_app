@@ -23,6 +23,24 @@ class ArticleModel extends Article {
           content: '_empty.content',
           source: const SourceModel.empty(),
         );
+
+  ArticleModel.fromMap(Map<String, dynamic> map)
+      : this(
+          author: map['author'] as String? ?? '',
+          title: map['title'] as String? ?? '',
+          description: map['description'] as String? ?? '',
+          url: map['title'] as String? ?? '',
+          imageUrl: map['imageUrl'] as String? ?? '',
+          publishedAt: map['publishedAt'] != null
+              ? DateTime.parse(
+                  map['publishedAt'] as String,
+                )
+              : DateTime.now(),
+          content: map['content'] as String? ?? '',
+          source: map['source'] != null
+              ? SourceModel.fromMap(map['source'] as Map<String, dynamic>)
+              : const SourceModel.empty(),
+        );
 }
 
 class SourceModel extends Source {
@@ -34,5 +52,11 @@ class SourceModel extends Source {
       : this(
           id: '_empty.id',
           name: '_empty.name',
+        );
+
+  SourceModel.fromMap(Map<String, dynamic> map)
+      : this(
+          id: map['id'] as String? ?? '',
+          name: map['name'] as String? ?? '',
         );
 }
