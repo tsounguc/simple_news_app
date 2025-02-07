@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
-String fixture(String fileName) => File('test/fixtures/$fileName').readAsStringSync();
+String fixture(String name) => File('test/fixtures/$name').readAsStringSync(encoding: utf8);

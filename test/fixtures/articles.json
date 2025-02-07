@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "totalResults": 6680,
+  "articles": [
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Relocation of Gazans would be temporary, Rubio says",
+      "description": "The White House has sought to clarify Donald Trump's proposal to \"take over\" Gaza.",
+      "url": "https://www.bbc.co.uk/news/articles/c4g9xgj2429o",
+      "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e1bb/live/4a00d3a0-e466-11ef-b734-a507e28e4d9e.jpg",
+      "publishedAt": "2025-02-06T09:22:26.5847015Z",
+      "content": "Her comments come after Trump proposed taking control of the Gaza Strip and redeveloping it into \"the Riviera of the Middle East\".\r\n\"The US will take over the Gaza Strip and we will do a job with it … [+642 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Sweden mourns deadliest shooting as gunman details emerge",
+      "description": "Police say they have identified the gunman but will not publish his name yet or those of victims.",
+      "url": "https://www.bbc.co.uk/news/articles/czdl72j3j6go",
+      "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/2e1b/live/0e343f20-e401-11ef-bd1b-d536627785f2.jpg",
+      "publishedAt": "2025-02-06T09:07:23.5378054Z",
+      "content": "Authorities are still yet to release details about the dead and injured. Health officials said three women and two men were in a critical but stable condition, while another woman was treated for min… [+1121 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Jeremy Bowen: Trump's Gaza plan won't happen, but it will have consequences",
+      "description": "The US president creates uncertainty and injects more instability, our international editor writes.",
+      "url": "https://www.bbc.co.uk/news/articles/cx2pwjgp59do",
+      "urlToImage": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1ae7/live/8090ce70-e3ee-11ef-a319-fb4e7360c4ec.jpg",
+      "publishedAt": "2025-02-06T07:07:21.7409255Z",
+      "content": "Just because Trump says something, that does not make it true or certain. \r\nHis statements are often more like opening gambits in a real estate negotiation than expressions of the settled policy of t… [+1143 chars]"
+    }
+  ]
+}
