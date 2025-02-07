@@ -4,6 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:simple_news_app/core/errors/failures.dart';
 import 'package:simple_news_app/features/news/domain/entity/article.dart';
 import 'package:simple_news_app/features/news/domain/repositories/news_repository.dart';
+import 'package:simple_news_app/features/news/domain/use_cases/get_articles.dart';
 
 import 'news_repository.mock.dart';
 
@@ -12,7 +13,7 @@ void main() {
   late GetArticles useCase;
   setUp(() {
     repository = MockNewsRepository();
-    useCase = GetArticles();
+    useCase = GetArticles(repository);
   });
 
   final testResponse = [Article.empty()];
@@ -35,7 +36,7 @@ void main() {
         result,
         equals(Right<Failure, List<Article>>(testResponse)),
       );
-      verify(() => repository.getArticles());
+      verify(() => repository.getArticles()).called(1);
       verifyNoMoreInteractions(repository);
     },
   );
