@@ -21,7 +21,7 @@ class ArticleModel extends Article {
           imageUrl: '_empty.imageUrl',
           publishedAt: '_empty.publishedAt',
           content: '_empty.content',
-          source: const SourceModel.empty(),
+          source: const NewsSourceModel.empty(),
         );
 
   ArticleModel.fromMap(Map<String, dynamic> map)
@@ -34,8 +34,8 @@ class ArticleModel extends Article {
           publishedAt: map['publishedAt'] as String? ?? '',
           content: map['content'] as String? ?? '',
           source: map['source'] != null
-              ? SourceModel.fromMap(map['source'] as Map<String, dynamic>)
-              : const SourceModel.empty(),
+              ? NewsSourceModel.fromMap(map['source'] as Map<String, dynamic>)
+              : const NewsSourceModel.empty(),
         );
 
   Map<String, dynamic> toMap() => {
@@ -46,22 +46,22 @@ class ArticleModel extends Article {
         'urlToImage': imageUrl,
         'publishedAt': publishedAt,
         'content': content,
-        'source': (source as SourceModel).toMap()
+        'source': (source as NewsSourceModel).toMap()
       };
 }
 
-class SourceModel extends Source {
-  const SourceModel({
+class NewsSourceModel extends NewsSource {
+  const NewsSourceModel({
     required super.id,
     required super.name,
   });
-  const SourceModel.empty()
+  const NewsSourceModel.empty()
       : this(
           id: '_empty.id',
           name: '_empty.name',
         );
 
-  SourceModel.fromMap(Map<String, dynamic> map)
+  NewsSourceModel.fromMap(Map<String, dynamic> map)
       : this(
           id: map['id'] as String? ?? '',
           name: map['name'] as String? ?? '',

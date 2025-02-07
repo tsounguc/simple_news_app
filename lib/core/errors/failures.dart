@@ -27,3 +27,15 @@ class FetchArticlesFailure extends Failure {
           statusCode: exception.statusCode,
         );
 }
+
+class DatabaseFailure extends Failure {
+  DatabaseFailure({
+    required super.message,
+    required super.statusCode,
+  });
+  DatabaseFailure.fromException(FavoritesException exception)
+      : this(
+          message: exception.message,
+          statusCode: exception.message,
+        );
+}

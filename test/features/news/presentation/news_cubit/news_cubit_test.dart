@@ -5,17 +5,37 @@ import 'package:mocktail/mocktail.dart';
 import 'package:simple_news_app/core/errors/failures.dart';
 import 'package:simple_news_app/features/news/domain/entity/article.dart';
 import 'package:simple_news_app/features/news/domain/use_cases/get_articles.dart';
+import 'package:simple_news_app/features/news/domain/use_cases/is_article_favorite.dart';
+import 'package:simple_news_app/features/news/domain/use_cases/remove_article.dart';
+import 'package:simple_news_app/features/news/domain/use_cases/save_article.dart';
 import 'package:simple_news_app/features/news/presentation/news_cubit/news_cubit.dart';
 
 class MockGetArticles extends Mock implements GetArticles {}
 
+class MockSaveArticle extends Mock implements SaveArticle {}
+
+class MockRemoveArticle extends Mock implements RemoveArticle {}
+
+class MockIsArticleFavorite extends Mock implements IsArticleFavorite {}
+
 void main() {
   late GetArticles getArticles;
+  late SaveArticle saveArticle;
+  late RemoveArticle removeArticle;
+  late IsArticleFavorite isArticleFavorite;
   late NewsCubit cubit;
 
   setUp(() {
     getArticles = MockGetArticles();
-    cubit = NewsCubit(getArticles: getArticles);
+    saveArticle = MockSaveArticle();
+    removeArticle = MockRemoveArticle();
+    isArticleFavorite = MockIsArticleFavorite();
+    cubit = NewsCubit(
+      getArticles: getArticles,
+      saveArticle: saveArticle,
+      removeArticle: removeArticle,
+      isArticleFavorite: isArticleFavorite,
+    );
   });
 
   tearDown(() => cubit.close());

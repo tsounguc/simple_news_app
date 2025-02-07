@@ -21,7 +21,7 @@ class Article extends Equatable {
           imageUrl: '',
           publishedAt: '',
           content: '',
-          source: const Source.empty(),
+          source: const NewsSource.empty(),
         );
 
   final String author;
@@ -31,7 +31,7 @@ class Article extends Equatable {
   final String imageUrl;
   final String publishedAt;
   final String content;
-  final Source source;
+  final NewsSource source;
 
   @override
   List<Object?> get props => [
@@ -46,13 +46,13 @@ class Article extends Equatable {
       ];
 }
 
-class Source extends Equatable {
-  const Source({
+class NewsSource extends Equatable {
+  const NewsSource({
     required this.id,
     required this.name,
   });
 
-  const Source.empty()
+  const NewsSource.empty()
       : this(
           id: '',
           name: '',
