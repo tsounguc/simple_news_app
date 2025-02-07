@@ -12,14 +12,14 @@ class ArticleModel extends Article {
     required super.source,
   });
 
-  ArticleModel.empty()
+  const ArticleModel.empty()
       : this(
           author: '_empty.author',
           title: '_empty.title',
           description: '_empty.description',
           url: '_empty.url',
           imageUrl: '_empty.imageUrl',
-          publishedAt: DateTime.now(),
+          publishedAt: '_empty.publishedAt',
           content: '_empty.content',
           source: const SourceModel.empty(),
         );
@@ -29,18 +29,25 @@ class ArticleModel extends Article {
           author: map['author'] as String? ?? '',
           title: map['title'] as String? ?? '',
           description: map['description'] as String? ?? '',
-          url: map['title'] as String? ?? '',
-          imageUrl: map['imageUrl'] as String? ?? '',
-          publishedAt: map['publishedAt'] != null
-              ? DateTime.parse(
-                  map['publishedAt'] as String,
-                )
-              : DateTime.now(),
+          url: map['url'] as String? ?? '',
+          imageUrl: map['urlToImage'] as String? ?? '',
+          publishedAt: map['publishedAt'] as String? ?? '',
           content: map['content'] as String? ?? '',
           source: map['source'] != null
               ? SourceModel.fromMap(map['source'] as Map<String, dynamic>)
               : const SourceModel.empty(),
         );
+
+  Map<String, dynamic> toMap() => {
+        'author': author,
+        'title': title,
+        'description': description,
+        'url': url,
+        'urlToImage': imageUrl,
+        'publishedAt': publishedAt,
+        'content': content,
+        'source': (source as SourceModel).toMap()
+      };
 }
 
 class SourceModel extends Source {
@@ -59,4 +66,9 @@ class SourceModel extends Source {
           id: map['id'] as String? ?? '',
           name: map['name'] as String? ?? '',
         );
+
+  Map<String, dynamic> toMap() => {
+        'id': id,
+        'name': name,
+      };
 }

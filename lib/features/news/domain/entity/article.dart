@@ -19,7 +19,7 @@ class Article extends Equatable {
           description: '',
           url: '',
           imageUrl: '',
-          publishedAt: DateTime.now(),
+          publishedAt: '',
           content: '',
           source: const Source.empty(),
         );
@@ -29,7 +29,7 @@ class Article extends Equatable {
   final String description;
   final String url;
   final String imageUrl;
-  final DateTime publishedAt;
+  final String publishedAt;
   final String content;
   final Source source;
 

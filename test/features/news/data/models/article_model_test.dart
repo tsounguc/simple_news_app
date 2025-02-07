@@ -53,7 +53,6 @@ void main() {
       'then return [Map] with correct data',
       () {
         // Arrange
-
         // Act
         final result = testModel.toMap();
         // Assert
