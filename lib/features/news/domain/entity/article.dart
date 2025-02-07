@@ -12,6 +12,18 @@ class Article extends Equatable {
     required this.source,
   });
 
+  Article.empty()
+      : this(
+          author: '',
+          title: '',
+          description: '',
+          url: '',
+          imageUrl: '',
+          publishedAt: DateTime.now(),
+          content: '',
+          source: const Source.empty(),
+        );
+
   final String author;
   final String title;
   final String description;
@@ -39,6 +51,12 @@ class Source extends Equatable {
     required this.id,
     required this.name,
   });
+
+  const Source.empty()
+      : this(
+          id: '',
+          name: '',
+        );
 
   final String id;
   final String name;
