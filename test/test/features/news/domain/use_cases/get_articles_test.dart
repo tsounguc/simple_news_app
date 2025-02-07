@@ -11,12 +11,18 @@ import 'news_repository.mock.dart';
 void main() {
   late NewsRepository repository;
   late GetArticles useCase;
+
+  final testResponse = [Article.empty()];
+  final testFailure = FetchArticlesFailure(
+    message: 'message',
+    statusCode: '400',
+  );
+
   setUp(() {
     repository = MockNewsRepository();
     useCase = GetArticles(repository);
   });
 
-  final testResponse = [Article.empty()];
   test(
     'given GetArticles use case '
     'when instantiated '
@@ -35,6 +41,30 @@ void main() {
       expect(
         result,
         equals(Right<Failure, List<Article>>(testResponse)),
+      );
+      verify(() => repository.getArticles()).called(1);
+      verifyNoMoreInteractions(repository);
+    },
+  );
+
+  test(
+    'given GetArticles use case '
+    'when instantiated '
+    'then [NewsRepository.getArticles] is unsuccessful '
+    'return [GetArticlesFailure]',
+    () async {
+      // Arrange
+      when(() => repository.getArticles()).thenAnswer(
+        (_) async => Left(testFailure),
+      );
+
+      // Act
+      final result = await useCase();
+
+      // Assert
+      expect(
+        result,
+        equals(Left<Failure, List<Article>>(testFailure)),
       );
       verify(() => repository.getArticles()).called(1);
       verifyNoMoreInteractions(repository);
