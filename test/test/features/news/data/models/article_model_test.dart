@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:simple_news_app/features/news/data/models/article_model.dart';
 import 'package:simple_news_app/features/news/domain/entity/article.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
@@ -9,9 +10,9 @@ void main() {
   late ArticleModel testModel;
 
   setUpAll(() {
-    testJson = fixture('article.json');
+    // testJson = fixture('article.json');
     testModel = ArticleModel.empty();
-    testMap = testModel.toMap();
+    // testMap = testModel.toMap();
   });
 
   test(
