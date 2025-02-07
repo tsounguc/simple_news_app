@@ -51,7 +51,7 @@ void main() {
     'given GetArticles use case '
     'when instantiated '
     'then [NewsRepository.getArticles] is unsuccessful '
-    'return [GetArticlesFailure]',
+    'return [FetchArticlesFailure]',
     () async {
       // Arrange
       when(() => repository.getArticles()).thenAnswer(
